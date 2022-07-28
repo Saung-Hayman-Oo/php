@@ -24,27 +24,14 @@
                             </div>
                             <hr>
                             <?php
-                               $id = $_GET['id'];
-                               $sql="SELECT * FROM to_do WHERE id=$id";
-                               $query=mysqli_query($conn,$sql);
-                               $row=mysqli_fetch_assoc($query);
-                               
-                               if(isset($_GET['updateBtn'])){
-                                   $message=$_GET['message'];
-                                   $sql = "UPDATE to_do SET message= '$message' WHERE id=$id";
-                                   
-                                   if(mysqli_query($conn,$sql)){
-                                      echo "<script>location.href='category_list.php'</script>";
-                                   }else{
-                                       echo "Update Fail:",mysqli_error();
-                                   }
-                               }
+                                $row=categoryShow($_GET['id']);
+                                categoryUpdate();
                                
 
                             ?>
                             <form action="" method="get">
                                 <div class="form-inline">
-                                     <input type="hidden" value="<?php echo $id; ?>" name="id" class="form-control mr-2"/>
+                                     <input type="hidden" value="<?php echo $row['id']; ?>" name="id" class="form-control mr-2"/>
                                     
                                     <input type="text" value="<?php echo $row['message']; ?>" name="message" class="form-control mr-2" required/>
                                     <button name="updateBtn" class="btn btn-primary">Update</button>

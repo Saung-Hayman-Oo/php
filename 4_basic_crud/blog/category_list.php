@@ -38,10 +38,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $sql = "SELECT * FROM to_do";
-                                        $query=mysqli_query($conn,$sql);
-                                        $total_row=mysqli_num_rows($query);
-                                        while($row=mysqli_fetch_assoc($query)){
+                                        
+                                        foreach(categoryList() as $row){
                                           
                                             $time=date("g:i",strtotime($row['created_at']));
                                     ?>

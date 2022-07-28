@@ -24,18 +24,7 @@
                             </div>
                             <hr>
                             <?php
-                                if(isset($_GET['addBtn'])){
-                                
-                                $message=$_GET['message'];
-                                $query="INSERT INTO to_do(message) VALUES ('$message')";
-                                
-                                if(mysqli_query($conn,$query)){
-                                   
-                                    echo "<script> location.href='category_list.php' </script>";
-                                }else{
-                                    echo "Query Fail".mysqli_error();
-                                }
-                                }
+                               categoryCreate();
 
                             ?>
                             <form action="" method="get">

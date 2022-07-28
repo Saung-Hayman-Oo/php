@@ -1,5 +1,6 @@
 <?php require_once "core/base.php"; ?>
 <?php require_once "core/conn.php"; ?>
+<?php require_once "core/functions.php"; ?>
 <!doctype html>
 <html lang="en">
 <head>
